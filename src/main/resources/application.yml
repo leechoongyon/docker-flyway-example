@@ -1,0 +1,21 @@
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none  # flyway 로 ddl 설정
+  datasource:
+    hikari:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC&characterEncoding=UTF-8
+      username: test
+      password: test1234
+  flyway:
+    user: test
+    password: test1234
+    schemas: test
+    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC&characterEncoding=UTF-8
+    enabled: true
+  h2:
+    console:
+      enabled: true
+      path: /h2-console

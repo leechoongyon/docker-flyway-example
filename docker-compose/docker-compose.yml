@@ -1,0 +1,22 @@
+# 실행 명령어
+# docker-compose -p test-db up -d
+
+version: "1"
+services:
+  order-db:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_DATABASE=test
+      - MYSQL_ROOT_PASSWORD=test1234
+      - MYSQL_USER=test
+      - MYSQL_PASSWORD=test1234
+      - TZ=UTC
+    command: # 수행 할 명령어
+      - --character-set-server=utf8mb4  # mysql character
+      - --collation-server=utf8mb4_unicode_ci # collation setting
+      - --lower_case_table_names=1 # 테이블 이름은 디스크에 소문자로 저장되며, 이름 비교는 대소문자를 구분하지 않습니다.
+
+    volumes:
+      - ./mysql:/var/lib/mysql
